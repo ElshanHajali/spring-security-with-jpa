@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create roles_authorities Table
+      author: Elshan Hacaliyev
+      changes:
+        - createTable:
+            tableName: roles_authorities
+            columns:
+              - column:
+                  name: role_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_roles_authorities_to_roles
+                    references: roles(id)
+              - column:
+                  name: authority_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_roles_authorities_to_authorities
+                    references: authorities(id)

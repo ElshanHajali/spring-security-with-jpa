@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create users_roles Table
+      author: Elshan Hacaliyev
+      changes:
+        - createTable:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_users_roles_to_users
+                    references: users(id)
+              - column:
+                  name: role_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_users_roles_to_roles
+                    references: roles(id)
